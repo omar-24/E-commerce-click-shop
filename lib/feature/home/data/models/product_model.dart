@@ -5,8 +5,8 @@ class Product {
   String price;
   int categoryId;
   String img;
-  DateTime createdAt;
-  DateTime updatedAt;
+  String createdAt;
+  String updatedAt;
 
   Product({
     required this.id,

@@ -17,7 +17,6 @@ class HomeRepoImplementation implements HomeRepo {
       List<ProductCategory> categoryList = [];
       for (var i in data["categories"]) {
         categoryList.add(ProductCategory.fromJson(i));
-        print(categoryList);
       }
       return right(categoryList);
     } catch (e) {

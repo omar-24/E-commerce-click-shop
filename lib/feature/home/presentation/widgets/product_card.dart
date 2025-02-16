@@ -3,15 +3,23 @@ import 'package:gcamp_team10/core/assets/colors.dart';
 
 import '../../data/models/product_model.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final Product product;
-  const ProductCard({super.key, required this.product,});
+
+  const ProductCard({
+    super.key,
+    required this.product,
+  });
+
+  @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  bool enabled = false;
 
   @override
   Widget build(BuildContext context) {
-    print(product);
-    print("product");
-
     return Padding(
       padding: const EdgeInsets.all(12),
       child: Container(
@@ -36,7 +44,7 @@ class ProductCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.network(
-                    product.img,
+                    widget.product.img,
                     height: 120,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -48,10 +56,17 @@ class ProductCard extends StatelessWidget {
                   child: CircleAvatar(
                     backgroundColor: Colors.white,
                     radius: 14,
-                    child: Icon(
-                      Icons.favorite_border,
-                      color: Colors.black54,
-                      size: 18,
+                    child: InkWell(
+                      onTap: () {
+                        setState(() {
+                          enabled = !enabled;
+                        });
+                      },
+                      child: Icon(
+                        enabled ? Icons.favorite : Icons.favorite_border,
+                        color: enabled ? Colors.red : Colors.black54,
+                        size: 18,
+                      ),
                     ),
                   ),
                 ),
@@ -59,7 +74,7 @@ class ProductCard extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              product.name,
+              widget.product.name,
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -79,7 +94,7 @@ class ProductCard extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   child: Text(
-                    product.price,
+                    widget.product.price,
                     style: TextStyle(
                       color: AppColor.primaryColor,
                       fontSize: 16,
