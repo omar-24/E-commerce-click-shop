@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gcamp_team10/feature/home/data/models/categoty_model.dart';
 
 class CategoryCard extends StatelessWidget {
-  final ProductsCategory category;
+  final ProductCategory category;
 
   const CategoryCard({
     super.key,
@@ -16,13 +16,16 @@ class CategoryCard extends StatelessWidget {
       child: InkWell(
         onTap: (){},
         child: Container(
-          height: 32,
+          height: 30,
           width: 120,
+
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
             color: Colors.white,
-            border: Border(),
-            borderRadius: BorderRadius.circular(30),
+            border: Border.all(
+              color: Colors.grey,  // Border color
+              width: 1.0,          // Border width
+            ),            borderRadius: BorderRadius.circular(30),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.1),

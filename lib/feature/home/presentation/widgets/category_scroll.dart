@@ -1,34 +1,41 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gcamp_team10/feature/home/data/models/categoty_model.dart';
+import 'package:gcamp_team10/feature/home/presentation/manager/category_cubit/category_cubit.dart';
+import 'package:gcamp_team10/feature/home/presentation/manager/category_cubit/category_state.dart';
 import 'package:gcamp_team10/feature/home/presentation/widgets/category_card.dart';
+
+import '../../../../core/assets/colors.dart';
 
 class CategoryScroll extends StatelessWidget {
   CategoryScroll({super.key});
 
-  final List<ProductsCategory> CATEGORY = [
-    ProductsCategory(name: "Clothes", id: 1),
-    ProductsCategory(name: "Makeup", id: 2),
-    ProductsCategory(name: "Electronics", id: 3),
-    ProductsCategory(name: "favorite", id: 4),
-    ProductsCategory(name: "Offers", id: 5),
-    ProductsCategory(name: "Recommended", id: 6),
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: SizedBox(
-        height: 65,
-        child: ListView.builder(
-          itemBuilder: (context, idx) {
-            return CategoryCard(category: CATEGORY[idx],);
-          },
-          itemCount: CATEGORY.length,
-          scrollDirection: Axis.horizontal,
-        ),
-      ),
+    return BlocBuilder<CategoryCubit, CategoryState>(
+      builder: (context, state) {
+        if(state is CategorySuccess){
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: SizedBox(
+              height: 60,
+              child: ListView.builder(
+                itemBuilder: (context, idx) {
+                  return CategoryCard(category: state.category[idx],);
+                },
+                itemCount: state.category.length,
+                scrollDirection: Axis.horizontal,
+              ),
+            ),
+          );
+        }else if(state is CategoryFailed){
+          return Text("${state.error}",style: TextStyle(color: Colors.white),);
+        }
+        else{
+          return Center(child:CircularProgressIndicator(color: AppColor.primaryColor,),);
+        }
+      },
     );
   }
 }

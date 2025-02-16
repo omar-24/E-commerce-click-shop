@@ -36,7 +36,7 @@ class VerificationDialog extends StatelessWidget {
             MainFillButton(
                 text: "Done",
                 onTap: () {
-                  context.go(Approuter.HomePath); // Close the dialog
+                  context.go(Approuter.RootPath); // Close the dialog
                 })
           ],
         ),

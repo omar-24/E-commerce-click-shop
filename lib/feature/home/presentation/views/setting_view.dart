@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:gcamp_team10/core/assets/fonts.dart';
 
 class SettingView extends StatefulWidget {
   const SettingView({super.key});
@@ -15,8 +16,10 @@ class _SettingViewState extends State<SettingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Settings'),
+        centerTitle: true,
+        title: Text('Settings',style: AppFonts.AppBarTitle),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 0,
@@ -24,6 +27,7 @@ class _SettingViewState extends State<SettingView> {
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
+          SizedBox(height: 60,),
           _buildSwitchTile(
             title: 'Allow transaction',
             subtitle: 'Transactions are allowed',
@@ -35,22 +39,26 @@ class _SettingViewState extends State<SettingView> {
               });
             },
           ),
+          SizedBox(height: 20,),
           _buildListTile(
             title: 'View your pin',
             icon: Icons.visibility,
             onTap: () {},
           ),
+          SizedBox(height: 20,),
           _buildListTile(
             title: 'Change your pin',
             icon: Icons.credit_card,
             onTap: () {},
           ),
+          SizedBox(height: 20,),
           _buildListTile(
             title: 'Replace your card',
             subtitle: 'Card was lost or stolen...',
             icon: Icons.badge,
             onTap: () {},
           ),
+          SizedBox(height: 20,),
           _buildListTile(
             title: 'Add to Apple Pay',
             icon: Icons.credit_card,

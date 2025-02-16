@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gcamp_team10/core/assets/fonts.dart';
 import 'package:gcamp_team10/core/assets/images.dart';
 
 class ProfileView extends StatelessWidget {
@@ -7,8 +8,10 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Profile'),
+        centerTitle: true,
+        title: Text('Profile',style: AppFonts.AppBarTitle),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         elevation: 0,
@@ -22,7 +25,7 @@ class ProfileView extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage(AppImages.DressImages),
+                  backgroundImage: AssetImage(AppImages.PfpImages),
                 ),
                 Positioned(
                   bottom: 0,
@@ -36,10 +39,11 @@ class ProfileView extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 80),
           Card(
+            color: Colors.white,
             margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(

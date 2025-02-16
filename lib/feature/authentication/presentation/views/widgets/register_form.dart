@@ -73,7 +73,7 @@ class _RegisterFormState extends State<RegisterForm> {
             MainFillButton(
               onTap: () {
                 if (SignupKey.currentState!.validate()) {
-                 context.go(Approuter.HomePath);
+                 context.go(Approuter.RootPath);
                 }
               },
               text: "Sign up",

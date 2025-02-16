@@ -19,7 +19,7 @@ class Product {
     required this.updatedAt,
   });
 
-  factory Product.fromjson(json) {
+  factory Product.fromjson(Map<String, dynamic> json) {
     return Product(
         id: json["id"],
         name: json["name"],

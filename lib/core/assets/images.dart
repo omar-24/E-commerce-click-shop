@@ -9,5 +9,7 @@ abstract class AppImages{
   static String GoogleIcon="images/Google-Logo.png";
   static String SuccessIcon="images/Payment Success.png";
   static String DressImages="images/women dress.jpeg";
+  static String JacketImages="images/jacket.jpeg";
+  static String PfpImages="images/pfp.jpeg";
 
 }

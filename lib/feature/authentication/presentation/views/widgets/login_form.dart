@@ -75,7 +75,7 @@ class _LoginFormState extends State<LoginForm> {
             MainFillButton(
               onTap: () {
                 if (LoginKey.currentState!.validate()) {
-                  context.go(Approuter.HomePath);
+                  context.go(Approuter.RootPath);
                 }
               },
               text: "Log in",

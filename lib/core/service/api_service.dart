@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:gcamp_team10/feature/home/data/models/product_model.dart';
 
 class ApiService {
-  final baseUrl = "https://orientonline.info/api/products";
+  final baseUrl = "https://orientonline.info/api/";
   final Dio _dio;
 
   ApiService({required Dio dio}) : _dio = dio;
@@ -19,13 +19,8 @@ class ApiService {
     return response.data;
   }
 
-  Future<List<Product>> get(
-      {required String endpoint, required Map<String, dynamic> data}) async {
+  Future<Map<String,dynamic>> get({required String endpoint}) async {
     Response response = await _dio.get("$baseUrl$endpoint");
-    List<Product> AllProduct=[];
-    for(Map i in response.data["products"]){
-      AllProduct.add(Product.fromjson(i));
-    }
-    return AllProduct;
+    return response.data;
   }
 }

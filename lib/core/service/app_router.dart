@@ -9,6 +9,7 @@ import 'package:gcamp_team10/feature/home/presentation/views/favorite_view.dart'
 import 'package:gcamp_team10/feature/home/presentation/views/home_view.dart';
 import 'package:gcamp_team10/feature/home/presentation/views/profile_view.dart';
 import 'package:gcamp_team10/feature/home/presentation/views/setting_view.dart';
+import 'package:gcamp_team10/feature/home/presentation/views/views_root.dart';
 import 'package:gcamp_team10/feature/onboarding/presentation/views/onboarding_view.dart';
 import 'package:gcamp_team10/feature/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -22,6 +23,7 @@ abstract class Approuter{
   static const RegisterPath="/register";
   static const ForgetPath="/forgetpassword";
   static const VervicationPath="/verfication";
+  static const RootPath="/rootpath";
   static const SetNewPassPath="/setpassword";
   static const HomePath="/home";
   static const ProfilePath="/profile";
@@ -47,6 +49,10 @@ abstract class Approuter{
       GoRoute(
         path: RegisterPath,
         builder: (context, state) => const RegisterView(),
+      ),
+      GoRoute(
+        path: RootPath,
+        builder: (context, state) =>  ViewsRoot(),
       ),
       GoRoute(
         path: ForgetPath,
